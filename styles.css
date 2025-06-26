@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+p {
+  font-size: 32px;
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
+    monospace;
+}
+
+.label {
+  border: 2px solid black;
+  margin: 20px auto;
+  padding: 0 10px;
+  width: 80%;
+}
