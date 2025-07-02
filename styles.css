@@ -23,3 +23,18 @@ p {
   width: 80%;
   font-weight: 800;
 }
+
+.footer {
+  text-align: center;
+  position: absolute;
+  width: 99%;
+  bottom: 25px;
+  font-weight: 800;
+  font-size: 12px;
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal,
+    monospace;
+}
+
+.heart-link {
+  text-decoration: none;
+}
