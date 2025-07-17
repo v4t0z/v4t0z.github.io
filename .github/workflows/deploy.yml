@@ -3,27 +3,14 @@ name: Zola deploy
 on:
   push:
     branches:
-      - main # senin ana branch’in
+      - main
 
 jobs:
-  build-deploy:
+  publish:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Install Zola
-        run: |
-          curl -sSL https://github.com/getzola/zola/releases/latest/download/zola-v0.21.0-x86_64-unknown-linux-gnu.tar.gz | tar -xz
-          sudo mv zola /usr/local/bin/
-
-      - name: Build site
-        run: |
-          cd myblog
-          zola build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./myblog/public
+      - uses: actions/checkout@v4
+      - name: Build & Deploy
+        uses: shalzz/zola-deploy-action@v0.20.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
