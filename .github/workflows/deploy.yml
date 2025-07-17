@@ -8,9 +8,15 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: myblog
+
     steps:
       - uses: actions/checkout@v4
       - name: Build & Deploy
         uses: shalzz/zola-deploy-action@v0.20.0
+        with:
+          build_dir: myblog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
