@@ -18,10 +18,12 @@ jobs:
           sudo mv zola /usr/local/bin/
 
       - name: Build site
-        run: zola build
+        run: |
+          cd myblog
+          zola build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./myblog/public
