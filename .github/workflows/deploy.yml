@@ -6,18 +6,23 @@ on:
       - main
 
 jobs:
-  publish:
+  build-deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: myblog
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Deploy with Zola
-        uses: shalzz/zola-deploy-action@v0.20.0
+      - name: Install Zola
+        run: |
+          curl -sSL https://github.com/getzola/zola/releases/latest/download/zola-v0.21.0-x86_64-unknown-linux-gnu.tar.gz | tar -xz
+          sudo mv zola /usr/local/bin/
+
+      - name: Build site
+        run: zola build
+        working-directory: myblog
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          args: .
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: myblog/public
