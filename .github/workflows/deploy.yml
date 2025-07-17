@@ -14,9 +14,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - name: Build & Deploy
+
+      - name: Deploy with Zola
         uses: shalzz/zola-deploy-action@v0.20.0
         with:
-          build_dir: myblog
+          args: .
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
