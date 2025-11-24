@@ -24,7 +24,7 @@ This is a fully responsive, fast, and minimal portfolio website built with moder
 
 ## 🛠 Tech Stack
 
-- Frontend: [Your stack – e.g., HTML, CSS, JS / React / Svelte / Astro]
+- Frontend: [HTML, CSS, JS / React / Svelte / Astro]
 - Styling: [Tailwind CSS / Sass / etc.]
 - Static Site Generator: [Zola / Jekyll / Next.js / etc.]
 - Hosting: GitHub Pages / Vercel / Netlify
